@@ -19,4 +19,18 @@ router.get("/details/:id", (req, res) => {
   return res.status(200).json(document[0]);
 });
 
+router.put("/edit/:id", (req, res) => {
+  const { id } = req.params;
+  data.forEach((currentDocument, i) => {
+    if (currentDocument.id === id) {
+      data[i] = { ...req.body, id: currentDocument.id };
+    }
+  });
+
+  const newDocument = data.filter(
+    (currentDOcument) => currentDOcument.id === id
+  );
+  return res.status(200).json(newDocument[0]);
+});
+
 module.exports = router;
