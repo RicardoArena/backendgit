@@ -9,4 +9,8 @@ router.post("/create-user", (req, res) => {
   res.status(201).json({ message: "Criado com sucesso!", data: data });
 });
 
+router.get("/read", (req, res) => {
+  return res.status(200).json(data);
+});
+
 module.exports = router;
